@@ -1,21 +1,46 @@
-<?php
-session_start();
+<?php 
+include('db_connect.php');
+
+ $sql='select name,project,id from project';
+ $result=mysqli_query($conn,$sql);
+ $project = mysqli_fetch_all($result, MYSQLI_ASSOC);
+ mysqli_free_result($result);
+ mysqli_close($conn);
+ 
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invertor's Lancers</title>
-</head>
-<body>
-    <h1> Home page </h1>
-    <h3> name : <?php echo (isset($_SESSION['uname']))?$_SESSION['uname']:'none' ?> </h3>
-    <h3> role : <?php echo (isset($_SESSION['role']))?$_SESSION['role']:'none' ?> </h3>
-    <a href="freelancerlogin.php">Freelancers login</a>
-    <br>
-    <a href="enterpriselogin.php">Enterpreneurs login </a>
-    <br>
-    <a href="logout.php">Logout</a>
-</body>
+<html>
+	
+	<?php include('header.php'); ?>
+    <h4 class="center grey-text">Project details</h4>
+
+	<div class="container">
+		<div class="row">
+
+		<?php foreach($project as $p): ?>
+
+<div class="col s6 m4">
+	<div class="card z-depth-0">
+		<img src="fe.jpg"class="p">
+		<div class="card-content center">
+			<h6><?php echo htmlspecialchars($p['name']); ?></h6>
+			<ul class="grey-text">
+				<?php foreach(explode(',', $p['project']) as $pro): ?>
+					<li><?php echo htmlspecialchars($pro); ?></li>
+				<?php endforeach; ?>
+			</ul>
+		</div>
+		<div class="card-action right-align">
+			<a class="brand-text" href="details.php?id=<?php echo $p['id'] ?>">more info</a>
+		</div>
+	</div>
+</div>
+
+<?php endforeach; ?>
+
+</div>
+</div>
+	<?php include('footer.php'); ?>
+
 </html>

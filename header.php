@@ -10,7 +10,7 @@
   }
 
   // null coalesce
-  $name = $_SESSION['uname'] ?? 'Guest';
+  $name = $_SESSION['name'] ?? 'Guest';
 
   // get cookie
   $user = $_COOKIE['user'] ?? 'Unknown';
@@ -45,9 +45,9 @@
 <body class="grey lighten-4">
 	<nav class="white z-depth-0">
     <div class="container">
-      <a href="index1.php" class="brand-logo brand-text">Investor's Lancer</a>
+      <a href="index.php" class="brand-logo brand-text">Investor's Lancer</a>
       <ul id="nav-mobile" class="right hide-on-small-and-down">
-        <li class="grey-text">Hello <?php echo htmlspecialchars($uname); ?></li>
+        <li class="grey-text">Hello <?php echo htmlspecialchars($name); ?></li>
         <li class="grey-text">(<?php echo htmlspecialchars($user); ?>)</li>
         <li><a href="add.php" class="btn brand z-depth-0">Edit profile</a></li>
       </ul>

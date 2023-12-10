@@ -9,7 +9,7 @@
 		$sql = "DELETE FROM project WHERE id = $id_to_delete";
 
 		if(mysqli_query($conn, $sql)){
-			header('Location: index1.php');
+			header('Location: index.php');
 		} else {
 			echo 'query error: '. mysqli_error($conn);
 		}
@@ -69,7 +69,7 @@
 <body class="grey lighten-4">
 	<nav class="white z-depth-0">
     <div class="container">
-      <a href="../index1.php" class="brand-logo brand-text">Investor's Lancer</a>
+      <a href="../index.php" class="brand-logo brand-text">Investor's Lancer</a>
       <ul id="nav-mobile" class="right hide-on-small-and-down">
        
         <li><a href="add.php" class="btn brand z-depth-0">Edit profile</a></li>

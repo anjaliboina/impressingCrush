@@ -58,7 +58,7 @@
 			// save to db and check
 			if(mysqli_query($conn, $sql)){
 				// success
-				header('Location: index1.php');
+				header('Location: index.php');
 			} else {
 				echo 'query error: '. mysqli_error($conn);
 			}
