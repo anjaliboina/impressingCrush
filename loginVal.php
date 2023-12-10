@@ -30,10 +30,9 @@ if (isset($_POST['submit']))
         $role = $row['roles'];
         $_SESSION['uname'] = $uemail;
         $_SESSION['role'] = $role;
-        echo "<script> window.location.replace('sample.php');</script>";
     }
     else{
-        echo "<script> alert('Login Credentials not Found')</script>";
+        echo "<script> window.location.replace('freelancerlogin.php');</script>";
     }
     $conn->close();
 

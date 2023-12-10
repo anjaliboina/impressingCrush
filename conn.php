@@ -5,7 +5,7 @@ function connectSql()
 {
 $HOST = 'localhost'; 
 $NAME = 'root';
-$PASS = '';
+$PASS = "";
 $DB = 'test';
 $mysqli = new mysqli($HOST,$NAME,$PASS,$DB);
 

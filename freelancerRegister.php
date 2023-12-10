@@ -1,13 +1,10 @@
 <?php
 session_start();
 require 'conn.php';
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
 
 if(isset($_SESSION['uname']))
 {
-    header('Location: sample.php');
+    header('Location: index.php');
 }
 
 
@@ -39,47 +36,11 @@ if (isset($_POST['submit']))
     $stmt2->bind_param('sssd', $uemail,$uname,$skills,$experience);
     $stmt2->execute();
     
-
-
-
-require './PHPMailer/src/Exception.php';
-require './PHPMailer/src/PHPMailer.php';
-require './PHPMailer/src/SMTP.php';
     
-$mail = new PHPMailer(true);
-
-try {
-    //Server settings
-
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'nagothigunesh.21.it@anits.edu.in';                     //SMTP username
-    $mail->Password   = 'tfth nxwq hflc ruem';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-    //Recipients
-    $mail->setFrom($email, 'Investor\'s Lancer');
-    $mail->addAddress($uemail);     //Add a recipient
-
-
-
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Greetings from INVESTOR\'S LANCER';
-    $mail->Body    = 'You have registered as a freelancer in Investors lancer and the goodies will be waiting for you after facing an interview in coming 3 days';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-    $mail->send();
-    echo '<script> alert("A confirmation mail is sent.")</script>';
-} catch (Exception $e) {
-    echo '<script> alert("A confirmation mail is not sent.")</script>';
-}
     $_SESSION['uname'] = $uemail;
     $_SESSION['role'] = $role;
     
-    echo "<script> window.location.replace('sample.php');</script>";
+    echo "<script> window.location.replace('index.php');</script>";
 }
     else{
         echo "<script> window.location.replace('freelancerlogin.php');</script>";

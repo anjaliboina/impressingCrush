@@ -4,7 +4,7 @@
 session_start();
 if (isset($_SESSION['uname']))
 {
-	header('Location: sample.php');
+	header('Location: index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -23,18 +23,18 @@ if (isset($_SESSION['uname']))
     </style>
 </head>
 <body>
-    <h2>Entrepreneur Login/Signup</h2>
+    <h2> Freelancer Login/Signup</h2>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="EnterpriseRegister.php" method="POST">
 			<h1>Create Account</h1>
-			<input name="uname" type="text" placeholder="Name" required/>
-			<input name="uemail" type="email" placeholder="Email" required/>
-			<input name="upass" type="password" placeholder="Password" required/>
-            <input name="urepass" type="password" placeholder="re-Enter Password" required/>
-            <input name="company" type="text" placeholder="Company Name" required/>
-            <input name="companyDomain" type="text" placeholder="Company Domain (Health care, IT services etc.)" required/>
-			<input type="hidden" name="role" value="enterprise" />
+			<input name="uname" type="text" placeholder="Name" />
+			<input name="uemail" type="email" placeholder="Email" />
+			<input name="upass" type="password" placeholder="Password" />
+            <input name="urepass" type="password" placeholder="re-Enter Password" />
+            <input name="company" type="text" placeholder="Company Name" />
+            <input name="companyDomain" type="text" placeholder="Company Domain (Health care, IT services etc.)" />
+			<input type="hidden" name="role" value="enterprise"/>
 			<button name="submit">Sign Up</button>
 		</form>
 	</div>

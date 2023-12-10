@@ -4,7 +4,7 @@
 session_start();
 if (isset($_SESSION['uname']))
 {
-	header('Location: jig.php');
+	header('Location: index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -21,32 +21,29 @@ if (isset($_SESSION['uname']))
         button:hover{
             cursor: pointer;
         }
-				body{
-					background-image:url('./img/bread-bg.jpg');
-				}
     </style>
 </head>
 <body>
-    <h2> Freelancer Login / Signup </h2>
+    <h2> Freelancer Login/Signup</h2>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="freelancerRegister.php" method="POST">
 			<h1>Create Account</h1>
-			<input name="uname" type="text" placeholder="Name" required/>
-			<input name="uemail" type="email" placeholder="Email" required/>
-			<input name="upass" type="password" placeholder="Password" required/>
-            <input name="urepass" type="password" placeholder="re-Enter Password" required/>
-            <input name="skills" type="text" placeholder="skills (',' separated)" required/>
-            <input name="experience" type="number" placeholder="Experience (in years)" required/>
-			<input type="hidden" name="role" value="freelancer" />
+			<input name="uname" type="text" placeholder="Name" />
+			<input name="uemail" type="email" placeholder="Email" />
+			<input name="upass" type="password" placeholder="Password" />
+            <input name="urepass" type="password" placeholder="re-Enter Password" />
+            <input name="skills" type="text" placeholder="skills (',' separated)" />
+            <input name="experience" type="number" placeholder="Experience (in years)" />
+			<input type="hidden" name="role" value="freelancer"/>
 			<button name="submit">Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
 		<form action="loginVal.php" method="POST">
 			<h1>Sign in</h1>
-			<input name="uemail" type="email" placeholder="Email" required/>
-			<input name="upass" type="password" placeholder="Password" required/>
+			<input name="uemail" type="email" placeholder="Email" />
+			<input name="upass" type="password" placeholder="Password" />
 			
 			<button name="submit"> Sign In</button>
 		</form>
